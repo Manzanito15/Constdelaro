@@ -1,0 +1,58 @@
+.dropdown a {
+    margin-right: 80px;
+    text-decoration: none;
+}
+
+.menu {
+    width: 100px;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex-grow: 1;
+    min-height: 100vh;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    padding: 1rem
+}
+
+h1 {
+    padding: 5px;
+    margin-left: 25px;
+    font-weight: bold;
+    border-bottom: 3px solid rgb(255, 255, 255);
+    width: 980px;
+}
+
+.tamaño {
+    width: 200px;
+    height: 150px;
+}
+
+main {
+    background-color: rgb(213, 213, 213);
+}
+
+input::placeholder {
+    font-weight: 500;
+    color: #6c757d;
+    /* similar al texto Bootstrap */
+}
+
+.form-control {
+    height: 45px;
+    /* altura uniforme */
+    font-weight: 500;
+}
