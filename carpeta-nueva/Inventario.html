@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel de administración</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="icon" href="WhatsApp-Image-2025-05-23-at-9.17.30-AM.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+    }
+    .sidebar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100vh;
+      background-color: #212529;
+      color: white;
+      z-index: 1051; /* por encima del header */
+      padding: 20px;
+    }
+
+    header {
+      position: relative;
+      margin-left: 250px;
+      z-index: 1040;
+    }
+
+    main {
+      margin-left: 250px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="d-flex align-items-center mb-4">
+   <a href="inicio.html">
+    <img src="WhatsApp-Image-2025-05-23-at-9.17.30-AM.ico" width="50" height="50" class="rounded-circle me-2" alt="Logo">
+    </a>
+    <span class="fs-4">Constdelaro</span>
+  </div>
+  <hr class="border-light">
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-item"><a href="inicio-admin.html" class="nav-link text-white"><i class="bi bi-house-door-fill me-2"></i>Inicio</a></li>
+    <li><a href="cliente.html" class="nav-link text-white"><i class="bi bi-people-fill me-2"></i>Clientes</a></li>
+    <li><a href="factura.html" class="nav-link text-white"><i class="bi bi-receipt-cutoff me-2"></i>Facturas</a></li>
+    <li><a href="Inventario.html" class="nav-link text-white"><i class="bi bi-box-seam me-2"></i>Inventario</a></li>
+    <li>
+      <a class="nav-link text-white" data-bs-toggle="collapse" href="#submenuCategoria" role="button" aria-expanded="false"><i class="bi bi-boxes me-2"></i>Categoría</a>
+      <div class="collapse" id="submenuCategoria">
+        <ul class="list-unstyled ps-4">
+          <li><a href="Construccion-admin.html" class="nav-link text-white">Construcción</a></li>
+          <li><a href="Materiales-admin.html" class="nav-link text-white">Materiales</a></li>
+        </ul>
+      </div>
+    </li>
+    <li><a href="Empleado.html" class="nav-link text-white"><i class="bi bi-person-badge-fill me-2"></i>Empleados</a></li>
+  </ul>
+</aside>
+
+
+<!-- Header -->
+<header class="bg-success text-white p-3 border-bottom d-flex justify-content-between align-items-center">
+  <h2 class="m-0">Panel de Administración</h2>
+  <div class="dropdown">
+    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-person-circle fs-4 me-2"></i>
+      <span class="fw-semibold">Jesús Chalas</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
+      <li><a class="dropdown-item" href="#">Cambiar de cuenta</a></li>
+      <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- Main content -->
+<main>
+     <h1>Inventario</h1>
+                <div class="mt-4 mb-3 d-flex gap-4">
+                    <button type="button" class="btn btn-lg btn-dark" data-bs-toggle="modal"
+                        data-bs-target="#tercerModal" data-bs-whatever="@mdo">Agregar materiales.</button>
+                </div>
+                <div class="modal fade" id="tercerModal" tabindex="-1" aria-labelledby="tercerModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog-centered modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="tercerModalLabel">Formulario de registros de datos</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Cerrar"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="Inventario.html">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label for="nombre" class="form-label">ID</label>
+                                            <input type="number" class="form-control" id="nombre" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="Apellido" class="form-label">Material</label>
+                                            <input type="text" class="form-control" id="Apellido" required>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label for="edad" class="form-label">Cantidad</label>
+                                            <input type="text" class="form-control" id="edad" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="telefono" class="form-label">Money</label>
+                                            <input type="number" class="form-control" id="telefono" required>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Guardar Datos</button>
+                                </form>
+                            </div>
+  <!-- Tabla de Inventario -->
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h4 class="card-title mb-4">Inventario Cantidad disponible y Despricion</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="table-light">
+            <tr>
+              <th>ID</th>
+              <th>Material</th>
+              <th>Cantidad</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Cemento</td>
+              <td>15 bolsas</td>
+              <td>$RD5,890</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Varillas</td>
+              <td>45 unidaes</td>
+              <td>$RD7,250</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Madera</td>
+              <td>30 tablones</td>
+              <td>$RD5,450</td>
+            </tr>
+                        <tr>
+              <td>4</td>
+              <td>Ladrillos</td>
+              <td>65 Ladrillos</td>
+              <td>$RD7,150</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Block</td>
+              <td>135 Block</td>
+              <td>$RD12,500</td>
+            </tr>
+                        <tr>
+              <td>6</td>
+              <td>Clavos</td>
+              <td>1,500 Unidades</td>
+              <td>$RD17,650</td>
+            </tr>
+            <tr>
+  <td>7</td>
+  <td>Pintura blanca</td>
+  <td>8 galones</td>
+  <td>RD$3,200</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>Varilla 3/8"</td>
+  <td>25 unidades</td>
+  <td>RD$7,500</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td>Arena lavada</td>
+  <td>3 metros cúbicos</td>
+  <td>RD$2,100</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td>Grava</td>
+  <td>4 metros cúbicos</td>
+  <td>RD$2,800</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td>Tubo PVC 2"</td>
+  <td>10 unidades</td>
+  <td>RD$4,000</td>
+</tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<main>
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h4 class="card-title mb-4">Inventario Cantidad disponible y Despricion</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="table-light">
+            <tr>
+              <th>ID</th>
+              <th>Material</th>
+              <th>Cantidad</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Cemento</td>
+              <td>15 bolsas</td>
+              <td>$RD5,890</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Varillas</td>
+              <td>45 unidaes</td>
+              <td>$RD7,250</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Madera</td>
+              <td>30 tablones</td>
+              <td>$RD5,450</td>
+            </tr>
+                        <tr>
+              <td>4</td>
+              <td>Ladrillos</td>
+              <td>65 Ladrillos</td>
+              <td>$RD7,150</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Block</td>
+              <td>135 Block</td>
+              <td>$RD12,500</td>
+            </tr>
+                        <tr>
+              <td>6</td>
+              <td>Clavos</td>
+              <td>1,500 Unidades</td>
+              <td>$RD17,650</td>
+            </tr>
+            <tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
